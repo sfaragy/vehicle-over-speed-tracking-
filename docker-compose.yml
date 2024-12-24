@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: banglossOverspeed
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/:/app
+    command: python main.py
+    stdin_open: true
+    tty: true
