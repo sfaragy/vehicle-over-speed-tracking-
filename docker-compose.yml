@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   app:
     container_name: banglossOverspeed
@@ -8,6 +6,11 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./src/:/app
+    devices:
+      - /dev/video0:/dev/video0  # Map the camera device
+    environment:
+      - DISPLAY=$DISPLAY         # Share display settings (if needed)
     command: python main.py
+
     stdin_open: true
     tty: true
